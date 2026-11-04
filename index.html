@@ -1,0 +1,290 @@
+﻿<!doctype html><html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Yuna Yang</title><style>
+*{box-sizing:border-box}body{margin:0;color:#413443;background:#f8f1f5;font:16px/1.65 system-ui,sans-serif;background-image:radial-gradient(ellipse at 20% 20%,#f4dce8,transparent 59%),radial-gradient(ellipse at 85% 75%,#dce9ee,transparent 70%);background-attachment:fixed}a,button{color:inherit}a{text-underline-offset:.24em}button{font:inherit}a:focus-visible,button:focus-visible{outline:2px solid #795774;outline-offset:5px}.page{display:none;max-width:1150px;margin:auto;padding:24px clamp(20px,5vw,70px) 60px}.page:target{display:block;animation:arrive .45s ease-out}.page:target~.cover{display:none}.cover{min-height:100svh;display:grid;justify-items:center;align-content:center;padding:16px;overflow:hidden;text-align:center}h1,h2{font-family:Georgia,serif;font-weight:400}h1{font-size:clamp(42px,8vw,92px);letter-spacing:-.055em;line-height:1;margin:0}.signature{display:block;text-decoration:none;margin-bottom:6px}.gate{width:min(83vw,450px,52svh);aspect-ratio:480/490;position:relative;isolation:isolate;perspective:850px}.gate:before{content:"";position:absolute;inset:12% 6% 3%;border-radius:50% 50% 7% 7%;background:radial-gradient(ellipse at 52% 58%,#fff9,#f8d8e377 38%,#a0b9d066 75%,transparent);filter:blur(10px);opacity:.6}.leaf{width:50%;height:100%;position:absolute;top:0;color:#725f73;filter:drop-shadow(1px 1px 0 #fffc);transition:transform .9s cubic-bezier(.23,.75,.24,1),opacity .9s;pointer-events:none}.left{left:0;transform-origin:left}.right{right:0;transform-origin:right}.opened .left{transform:rotateY(-73deg);opacity:.64}.opened .right{transform:rotateY(73deg);opacity:.64}.latch{position:absolute;inset:0;width:100%;border:0;background:transparent;cursor:pointer}.latch span{display:inline-block;background:#fbf3f5;border:1px solid #a18a9f;border-radius:50%;padding:5px 15px;font-family:Georgia,serif;box-shadow:0 0 18px #fff;transition:transform .2s}.latch:hover span{transform:scale(1.09)}.opened .latch{visibility:hidden}.inside{position:absolute;inset:0;display:grid;place-content:center;gap:13px;visibility:hidden;opacity:0;font:italic clamp(24px,4vw,43px)/1.1 Georgia,serif;transition:opacity .35s .3s}.opened .inside{visibility:visible;opacity:1}.top{display:flex;gap:25px}.top{justify-content:space-between;border-bottom:1px solid #a995a6;padding-bottom:14px}.top a:first-child{margin-right:auto}.page h1{margin:44px 0 28px}.page p{max-width:39em}.works{display:grid;grid-template-columns:1fr 1fr;gap:20px 35px}details{border-top:1px solid #a995a6;padding:12px 0}summary{cursor:pointer;font:clamp(22px,4vw,38px)/1.2 Georgia,serif;list-style:none}summary::-webkit-details-marker{display:none}summary:after{content:'+';float:right}details[open] summary:after{content:'−'}figure{margin:14px 0 0;animation:arrive .35s ease-out}figure img{width:100%;height:auto;display:block}small{display:block;margin:8px 0;font-size:11px;letter-spacing:.08em}@keyframes arrive{from{opacity:0;transform:translateY(7px)}to{opacity:1;transform:none}}@media(max-width:600px){.works{grid-template-columns:1fr}}@media(prefers-reduced-motion:reduce){*,*::before,*::after{animation:none!important;transition:none!important}}
+#info{max-width:860px}
+.diary{position:relative;margin:30px auto 0;padding:clamp(25px,6vw,66px);text-align:center;background:radial-gradient(ellipse at 50% 45%,#fff9f5 0%,#f8e4e9 68%,#ebcbd7 100%);border:1px solid #a9919d;box-shadow:4px 4px 0 #e0d0d7,7px 7px 0 #ad9ba5,10px 12px 24px #63445b29;isolation:isolate}
+.diary::before{content:"";position:absolute;inset:9px;border:1px dashed #9b768e70;pointer-events:none;z-index:-1}
+.note-heading{display:grid;grid-template-columns:1fr auto 1fr;align-items:center;gap:6px;color:#715366}
+.note-heading .note-curl{width:100%;max-width:160px;justify-self:end}
+.note-heading .note-curl:last-child{transform:scaleX(-1);justify-self:start}
+#info .note-heading h1{margin:0;font:italic clamp(40px,9vw,78px)/1 Georgia,serif}
+.note-name{font:italic clamp(16px,4vw,25px)/1.4 Georgia,serif;margin:14px 0 34px;color:#79536d}
+.note-entry{max-width:530px;margin:0 auto 27px}
+.note-entry h2{font:italic clamp(19px,4vw,28px)/1.2 Georgia,serif;color:#754f69;margin:0 0 10px}
+.note-entry p{margin:0 auto 9px;line-height:1.85}
+.note-end{color:#805f76;letter-spacing:.3em}
+.latch,.inside{z-index:2}
+.diary{padding-inline:clamp(24px,8vw,88px);background-image:repeating-linear-gradient(0deg,transparent 0 3px,#fff3 3px 4px),radial-gradient(ellipse at 50% 42%,#fff9f6,#f4dce6 72%,#e7c6d6)}
+.diary::before{inset:13px;border:3px double #a77d9690}
+.diary-corners{position:absolute;inset:11px;pointer-events:none;z-index:-1;color:#89617d}
+.diary-corners svg{width:clamp(43px,12vw,105px);position:absolute}
+.diary-corners svg:nth-child(2){right:0;transform:scaleX(-1)}
+.diary-corners svg:nth-child(3){bottom:0;transform:scaleY(-1)}
+.diary-corners svg:nth-child(4){bottom:0;right:0;transform:scale(-1)}
+.note-entry{position:relative;padding:14px 0 4px}
+.note-entry h2{font-size:clamp(22px,4vw,31px);letter-spacing:-.025em}
+.note-entry p{text-align:start}
+.note-name{border-bottom:1px dotted #a9869b;padding-bottom:14px}
+#info .diary{padding-inline:clamp(26px,10vw,94px)}
+.note-entry p{font-family:"Microsoft YaHei","PingFang SC","Noto Sans CJK SC",sans-serif;line-height:1.9;color:#3e303a;overflow-wrap:anywhere}
+.note-entry h2{text-align:left;display:flex;align-items:baseline;gap:.5em}
+.note-entry + .note-entry{border-top:1px dotted #a9869b}
+.note-number{font:11px/1 Georgia,serif;letter-spacing:.12em}
+.note-margins{position:absolute;inset:15% 14px 9%;display:flex;justify-content:space-between;pointer-events:none;z-index:-1;color:#916b88}
+.margin-ink{width:clamp(14px,5vw,45px);height:100%;opacity:.76}
+.margin-ink + .margin-ink{transform:scaleX(-1)}
+@media(max-width:500px){.note-margins{inset-inline:7px}.note-entry h2{font-size:clamp(19px,5vw,24px)}}
+:root{--paper:#fed7d0;--ink:#4a3537}
+body{background:var(--paper);color:var(--ink)}
+.gate:before{background:radial-gradient(ellipse,#fff4ec99,transparent 72%)}
+.leaf{color:#765459}
+.latch span{background:#ffebe3;border-color:#a97b80}
+.top,details{border-color:#af8688}
+#info .info-print{width:min(100%,736px);margin:24px auto 0;position:relative;container-type:inline-size;color:var(--ink)}
+.info-paper{display:block;width:100%;height:auto}
+.info-mask{position:absolute;inset:0;background:var(--paper);clip-path:polygon(17% 24%,82% 24%,82% 70%,76% 70%,76% 78%,43% 78%,43% 64%,39% 64%,39% 56%,17% 56%)}
+.info-copy{position:absolute;inset:24% 18% auto 18%;text-align:left}
+#info .info-copy h1{font:italic clamp(24px,6.4cqw,47px)/1.05 Georgia,serif;margin:0 0 .4em;letter-spacing:-.045em}
+.info-copy h2{font:italic clamp(15px,3.1cqw,23px)/1.15 Georgia,serif;margin:.55em 0 .18em}
+.info-copy p{font:clamp(12px,2.2cqw,16px)/1.55 "Microsoft YaHei","PingFang SC",sans-serif;margin:0}
+.info-copy h2:last-of-type,.info-copy p:last-child{margin-left:33%}
+@media(max-width:620px){
+  #info{padding-inline:10px}
+  .info-paper{height:max(740px,125cqw);object-fit:fill}
+  .info-copy{left:18%;right:18%}
+  .info-copy p{line-height:1.43}
+}
+/* Pastel paper palette */
+body{
+  background:#f8f1f5;
+  background-image:radial-gradient(ellipse at 20% 20%,#f4dce8,transparent 59%),radial-gradient(ellipse at 85% 75%,#dce9ee,transparent 70%);
+  background-attachment:fixed;
+  color:#413443;
+}
+.cover,#works{
+  isolation:isolate;
+  position:relative;
+}
+.cover::before{
+  content:"";
+  position:absolute;
+  inset:-8%;
+  z-index:-1;
+  pointer-events:none;
+  background:radial-gradient(ellipse at 50% 58%,#fff9 0%,#edd6ed66 25%,transparent 59%);
+  animation:paper-light 9s ease-in-out infinite alternate;
+}
+@keyframes paper-light{
+  from{opacity:.48;transform:translate(-4%,2%)}
+  to{opacity:.94;transform:translate(4%,-3%)}
+}
+.gate:before{background:radial-gradient(ellipse,#fff9,#f8d8e377 38%,#a0b9d066 75%,transparent)}
+.leaf{color:#725f73}
+.latch span{background:#fbf3f5;border-color:#a18a9f}
+#info .info-print{color:#413443}
+.info-paper,.info-mask{filter:hue-rotate(-48deg) saturate(.67) brightness(1.025)}
+.top,details{border-color:#a995a6}
+.fairy-name{display:block;padding:0 10px;margin-bottom:12px}
+.fairy-letters{display:flex;justify-content:center;gap:clamp(8px,2vw,23px);mix-blend-mode:multiply}
+.fairy-word{display:flex;align-items:center;gap:1px}
+.fairy-word i{display:block;height:clamp(25px,9.4vw,77px);aspect-ratio:var(--w);background-image:url("fairy-ink.png");background-repeat:no-repeat;background-size:var(--sx) var(--sy);background-position:var(--px) var(--py)}
+.ink-filter{position:absolute;pointer-events:none}
+.fairy-letters{mix-blend-mode:normal;gap:clamp(12px,3vw,32px)}
+.fairy-word i{height:clamp(26px,9.4vw,82px)}
+#info .info-copy{top:24%;left:18%;right:18%;width:auto;display:flex;flex-direction:column;gap:clamp(5px,1cqw,9px)}
+#info .info-copy h1{margin:0;font-size:clamp(23px,6cqw,46px)}
+#info .bio-entry h2{margin:0 0 .2em;font-size:clamp(15px,2.7cqw,21px)}
+#info .bio-entry p{margin:0 0 .28em;font:clamp(12px,1.92cqw,15px)/1.35 Georgia,serif}
+#info .bio-past{margin-left:32%}
+@media(max-width:620px){#info .info-paper{height:max(900px,153cqw)}}
+.fairy-name:focus-visible{outline:none;text-decoration:underline;text-underline-offset:8px}
+.fairy-name,.inside{color:#413443}
+.name-caption{display:block;margin-top:7px;text-align:right;font:italic clamp(13px,2.5vw,18px)/1.15 Georgia,serif;letter-spacing:.02em}
+.gate-back{justify-self:center;border:0;padding:3px 8px;background:none;font-size:.55em;text-decoration:underline;text-underline-offset:.24em;cursor:pointer}
+.inside .gate-back{min-height:34px;padding:3px 16px;border:1px solid #aa8eaa;border-radius:20px;background:#fbf2f5;font:16px Georgia,serif;text-decoration:none}.page-back{font-weight:600}
+/* The satin sits behind the existing moving wash of light. */
+.cover::after,#works::after{
+  content:"";
+  position:absolute;
+  inset:0;
+  z-index:-2;
+  pointer-events:none;
+  background: url("cover-quilt.jpg") center 49% / cover no-repeat;
+  opacity:.38;
+  filter:saturate(.68);
+  mask-image:radial-gradient(ellipse 89% 84% at 50% 47%,#000 20%,#000d 62%,transparent 100%);
+}
+.cover::before{
+  background:radial-gradient(ellipse at 50% 52%,#fff9 0%,#f6e4ef66 32%,#dceaf344 54%,transparent 72%);
+}
+.fairy-word i{animation:name-bob var(--bob-period,1.8s) ease-in-out var(--bob-phase,-.3s) infinite;transform-origin:50% 80%}
+.fairy-word i:nth-child(2n){--bob-period:1.45s;--bob-phase:-.72s;--bob-tilt:2deg}
+.fairy-word i:nth-child(3n){--bob-period:2s;--bob-phase:-.49s}
+.fairy-word + .fairy-word i:nth-child(odd){--bob-period:1.6s;--bob-phase:-.88s}
+@keyframes name-bob{
+  0%,100%{transform:translateY(0)}
+  50%{transform:translateY(-5px) rotate(var(--bob-tilt,-2deg))}
+}
+@media(prefers-reduced-motion:reduce){.fairy-word i{animation:none}}
+#works{min-height:100svh}
+#works::after{position:fixed}
+.info-imprint-mask{position:absolute;left:42.4%;top:83.05%;width:12%;height:2.5%;background:var(--paper);filter:hue-rotate(-48deg) saturate(.67) brightness(1.025);pointer-events:none}
+.bubble-title{display:block;margin-right:48px;font:clamp(22px,4vw,38px)/1.2 Georgia,serif;text-decoration:none}
+.bubble-title:hover{text-decoration:underline}
+.bubble-preview{border:0;padding:0}
+.bubble-preview summary{position:absolute;top:4px;right:0;min-width:44px;min-height:44px;text-align:center}
+.bubble-preview summary:after{float:none}
+.bubble-intro{margin:44px 0 36px}
+.page .bubble-intro h1{margin:6px 0 15px;font-size:clamp(34px,8vw,78px)}
+.bubble-story{max-width:820px}
+.bubble-story section{padding:23px 0 32px;border-top:1px solid #a995a6}
+.bubble-story h2{margin:4px 0 10px;font-size:clamp(25px,5vw,42px)}
+.bubble-pair{display:grid;grid-template-columns:1fr 1fr;gap:15px}
+.bubble-story figcaption{font-size:13px;margin-top:6px}
+.bubble-outcome{max-width:480px}
+@media(max-width:480px){.bubble-pair{grid-template-columns:1fr}}
+.work-entry{position:relative;border-top:1px solid #a995a6;padding:12px 0}
+.project-hero{max-width:820px;margin:0 0 32px}
+.project-hero img{max-height:65vh;object-fit:contain;object-position:left center}
+@media(prefers-reduced-motion:reduce){.window-leaf{transition:none}}
+.work-gallery{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px;margin:22px 0}
+.work-gallery figure{margin:0}
+.game-stills{grid-template-columns:repeat(3,minmax(0,1fr))}
+@media(max-width:530px){.work-gallery{grid-template-columns:1fr}.game-stills{grid-template-columns:repeat(2,minmax(0,1fr))}}
+.open-window-preview{
+  display:block;position:relative;width:min(100%,410px);
+  aspect-ratio:736/662;margin:14px auto 4px;isolation:isolate
+}
+
+.open-window-preview .window-project-image{
+  position:absolute;top:17.6%;left:26.5%;width:46.1%;height:64.2%;
+  object-fit:cover;object-position:50% 50%;
+  clip-path:polygon(1.5% 1%,97.6% 0,99% 98%,1% 100%);
+  transition:filter .25s
+}
+.open-window-preview[href="#meet-in-bubble"] .window-project-image{object-position:31% center}
+.open-window-preview[href="#empty-vein"] .window-project-image{object-position:65% center}
+.open-window-preview[href="#desire-burning"] .window-project-image{object-position:50% center}
+.open-window-preview[href="#as-object"] .window-project-image{object-position:48% center}
+.open-window-preview:hover .window-project-image{filter:brightness(1.08)}
+.open-window-preview{aspect-ratio:420/274}
+.open-window-preview .window-project-image{top:20.5%;left:25.72%;width:48.56%;height:58.35%;clip-path:none}
+.window-linework{position:absolute;inset:0;width:100%;height:100%;z-index:1;pointer-events:none}
+</style></head><body>
+<section class="page" id="info">
+<nav class="top" aria-label="导航"><a href="#home" class="page-back">← Back</a><a href="#works">Portfolio</a></nav>
+<div class="info-print">
+  <img class="info-paper" src="info-original.jpg" alt="">
+  <div class="info-mask" aria-hidden="true"></div><div class="info-imprint-mask" aria-hidden="true"></div>
+  <div class="info-copy" lang="en">
+  <h1>Yuna Yang</h1>
+  <section class="bio-entry"><h2>Formation</h2>
+  <p>I am an artist born in China in 2004. I studied at Nanchang University and spent an exchange period at Hanyang University in South Korea. I am currently studying Contemporary Art Practice at the Royal College of Art in the UK.</p></section>
+  <section class="bio-entry"><h2>Current Research</h2>
+  <p>I work across installation, sound, moving image and interactive games. My current research asks how voice shapes social life online. In voice notes and live audio spaces, a pause, a change in tone or a sound in the background can make someone feel present. I am interested in what happens to that sense of presence when a voice can be replayed, synthesised or answered automatically.</p>
+  <p>In <em>MEET IN:BUBBLE</em>, speaking triggers a cluster of short-lived bubbles. The installation gives the interval between speaking and receiving a response a visible form.</p></section>
+  <section class="bio-entry bio-past"><h2>Previous Research</h2>
+  <p><em>DESIRE:burning</em> examines how the idol industry shapes desire. <em>AS OBJECT</em> looks at how everyday objects hold emotion and offer comfort. In <em>EMPTY VEIN</em>, an interactive game set in a landscape inspired by the former coal mines of my hometown, I ask how an industrial place is remembered after the work that shaped it disappears.</p></section>
+</div>
+</div></section><section class="page" id="works"><nav class="top" aria-label="导航"><a href="#home" class="page-back">← Back</a><a href="#info">Info</a></nav><h1>Portfolio</h1><div class="works"><article class="work-entry">
+  <a class="bubble-title" href="#meet-in-bubble">MEET IN:BUBBLE</a>
+  <details class="bubble-preview">
+    <summary aria-label="Preview MEET IN:BUBBLE"></summary>
+    <small>01 / Interactive installation</small>
+    <a class="open-window-preview" href="#meet-in-bubble" aria-label="View MEET IN:BUBBLE">
+<svg class="window-linework" viewBox="0 0 420 274" aria-hidden="true"><g fill="none" stroke="#836d80" stroke-width="1.4" stroke-linejoin="round" stroke-linecap="round"><path d="M12 32L106 53V219L12 249C24 166 25 94 12 32ZM22 42L99 58V214L20 239M26 83C38 119 74 99 65 81S39 73 43 87 55 91 54 84M24 144C44 166 82 148 81 131S61 116 58 130 69 140 72 132M25 201C39 183 64 182 73 193S72 216 60 210 56 198 64 201M84 54C100 80 89 101 79 106S67 98 75 94M87 157C65 168 77 191 92 181M23 220Q54 220 98 200"/><path d="M18 38L103 56V217L17 244" opacity=".4"/><g transform="translate(420 0) scale(-1 1)"><path d="M12 32L106 53V219L12 249C24 166 25 94 12 32ZM22 42L99 58V214L20 239M26 83C38 119 74 99 65 81S39 73 43 87 55 91 54 84M24 144C44 166 82 148 81 131S61 116 58 130 69 140 72 132M25 201C39 183 64 182 73 193S72 216 60 210 56 198 64 201M84 54C100 80 89 101 79 106S67 98 75 94M87 157C65 168 77 191 92 181M23 220Q54 220 98 200"/><path d="M18 38L103 56V217L17 244" opacity=".4"/></g><path d="M105 53H315V219H105ZM108 56H312V216H108Z" opacity=".65"/></g></svg>
+<img class="window-project-image" src="bubble-cover.png" alt="Wide view of the completed installation" loading="lazy">
+</a></details>
+</article>
+<article class="work-entry">
+  <a class="bubble-title" href="#empty-vein">EMPTY VEIN</a>
+  <details class="bubble-preview">
+    <summary aria-label="Preview EMPTY VEIN"></summary>
+    <small>02 / Interactive game</small>
+    <a class="open-window-preview" href="#empty-vein" aria-label="View EMPTY VEIN">
+<svg class="window-linework" viewBox="0 0 420 274" aria-hidden="true"><g fill="none" stroke="#836d80" stroke-width="1.4" stroke-linejoin="round" stroke-linecap="round"><path d="M12 32L106 53V219L12 249C24 166 25 94 12 32ZM22 42L99 58V214L20 239M26 83C38 119 74 99 65 81S39 73 43 87 55 91 54 84M24 144C44 166 82 148 81 131S61 116 58 130 69 140 72 132M25 201C39 183 64 182 73 193S72 216 60 210 56 198 64 201M84 54C100 80 89 101 79 106S67 98 75 94M87 157C65 168 77 191 92 181M23 220Q54 220 98 200"/><path d="M18 38L103 56V217L17 244" opacity=".4"/><g transform="translate(420 0) scale(-1 1)"><path d="M12 32L106 53V219L12 249C24 166 25 94 12 32ZM22 42L99 58V214L20 239M26 83C38 119 74 99 65 81S39 73 43 87 55 91 54 84M24 144C44 166 82 148 81 131S61 116 58 130 69 140 72 132M25 201C39 183 64 182 73 193S72 216 60 210 56 198 64 201M84 54C100 80 89 101 79 106S67 98 75 94M87 157C65 168 77 191 92 181M23 220Q54 220 98 200"/><path d="M18 38L103 56V217L17 244" opacity=".4"/></g><path d="M105 53H315V219H105ZM108 56H312V216H108Z" opacity=".65"/></g></svg>
+<img class="window-project-image" src="empty-vein.png" alt="Industrial game environment" loading="lazy">
+</a></details>
+</article>
+<article class="work-entry">
+  <a class="bubble-title" href="#desire-burning">DESIRE:burning</a>
+  <details class="bubble-preview">
+    <summary aria-label="Preview DESIRE:burning"></summary>
+    <small>03 / Performance, installation and moving image</small>
+    <a class="open-window-preview" href="#desire-burning" aria-label="View DESIRE:burning">
+<svg class="window-linework" viewBox="0 0 420 274" aria-hidden="true"><g fill="none" stroke="#836d80" stroke-width="1.4" stroke-linejoin="round" stroke-linecap="round"><path d="M12 32L106 53V219L12 249C24 166 25 94 12 32ZM22 42L99 58V214L20 239M26 83C38 119 74 99 65 81S39 73 43 87 55 91 54 84M24 144C44 166 82 148 81 131S61 116 58 130 69 140 72 132M25 201C39 183 64 182 73 193S72 216 60 210 56 198 64 201M84 54C100 80 89 101 79 106S67 98 75 94M87 157C65 168 77 191 92 181M23 220Q54 220 98 200"/><path d="M18 38L103 56V217L17 244" opacity=".4"/><g transform="translate(420 0) scale(-1 1)"><path d="M12 32L106 53V219L12 249C24 166 25 94 12 32ZM22 42L99 58V214L20 239M26 83C38 119 74 99 65 81S39 73 43 87 55 91 54 84M24 144C44 166 82 148 81 131S61 116 58 130 69 140 72 132M25 201C39 183 64 182 73 193S72 216 60 210 56 198 64 201M84 54C100 80 89 101 79 106S67 98 75 94M87 157C65 168 77 191 92 181M23 220Q54 220 98 200"/><path d="M18 38L103 56V217L17 244" opacity=".4"/></g><path d="M105 53H315V219H105ZM108 56H312V216H108Z" opacity=".65"/></g></svg>
+<img class="window-project-image" src="fandom-still.png" alt="Two performers with a red balloon" loading="lazy">
+</a></details>
+</article>
+<article class="work-entry">
+  <a class="bubble-title" href="#as-object">AS OBJECT</a>
+  <details class="bubble-preview">
+    <summary aria-label="Preview AS OBJECT"></summary>
+    <small>04 / Moving image</small>
+    <a class="open-window-preview" href="#as-object" aria-label="View AS OBJECT">
+<svg class="window-linework" viewBox="0 0 420 274" aria-hidden="true"><g fill="none" stroke="#836d80" stroke-width="1.4" stroke-linejoin="round" stroke-linecap="round"><path d="M12 32L106 53V219L12 249C24 166 25 94 12 32ZM22 42L99 58V214L20 239M26 83C38 119 74 99 65 81S39 73 43 87 55 91 54 84M24 144C44 166 82 148 81 131S61 116 58 130 69 140 72 132M25 201C39 183 64 182 73 193S72 216 60 210 56 198 64 201M84 54C100 80 89 101 79 106S67 98 75 94M87 157C65 168 77 191 92 181M23 220Q54 220 98 200"/><path d="M18 38L103 56V217L17 244" opacity=".4"/><g transform="translate(420 0) scale(-1 1)"><path d="M12 32L106 53V219L12 249C24 166 25 94 12 32ZM22 42L99 58V214L20 239M26 83C38 119 74 99 65 81S39 73 43 87 55 91 54 84M24 144C44 166 82 148 81 131S61 116 58 130 69 140 72 132M25 201C39 183 64 182 73 193S72 216 60 210 56 198 64 201M84 54C100 80 89 101 79 106S67 98 75 94M87 157C65 168 77 191 92 181M23 220Q54 220 98 200"/><path d="M18 38L103 56V217L17 244" opacity=".4"/></g><path d="M105 53H315V219H105ZM108 56H312V216H108Z" opacity=".65"/></g></svg>
+<img class="window-project-image" src="as-object.png" alt="Film still from AS OBJECT" loading="lazy">
+</a></details>
+</article></div></section>
+<section class="page bubble-project" id="meet-in-bubble" lang="en" aria-labelledby="bubble-heading">
+<nav class="top"><a href="#works">← Back to Portfolio</a></nav>
+<header class="bubble-intro"><small>01 / VOICE-RESPONSIVE INSTALLATION</small><h1 id="bubble-heading">MEET IN:BUBBLE</h1><p>What makes a voice feel close when its speaker is absent?</p></header>
+<figure class="project-hero"><img src="bubble-cover.png" alt="Wide view of the completed MEET IN:BUBBLE installation"></figure><div class="bubble-story">
+<section><small>01 / RESEARCH</small><h2>Closeness through voice</h2><p>I looked at AI conversations, virtual companions and romance simulation games, where voice and response can create a feeling of intimacy. The project asks what happens when that feeling depends on a system designed to respond.</p></section>
+<section><small>02 / PROTOTYPE</small><h2>Making speech visible</h2><p>I chose bubbles because they appear briefly and disappear. I tested a voice-triggered bubble machine, using the delay between speaking and seeing a bubble to give the act of waiting a physical form.</p><div class="bubble-pair"><figure><img src="bubble-hardware.png" alt="Wired electronics mounted on the installation frame"><figcaption>Hardware detail</figcaption></figure><figure><img src="bubble-apparatus.png" alt="Close-up photograph of the metal dish and wiring on the installation"><figcaption>Detail of the installation apparatus</figcaption></figure></div></section>
+<section><small>03 / INSTALLATION</small><h2>Speak, wait, watch</h2><p>The visitor speaks, the system detects the sound, and the bubble machine responds. The bubbles make the response visible for a moment before it disappears.</p><figure class="bubble-outcome"><img src="bubble-installation.png" alt="A participant interacting with the installation"><figcaption>Photograph from the installation documentation</figcaption></figure><p><a href="https://youtu.be/FGB-hLGwKtg">Watch the project film ↗</a></p></section>
+</div></section>
+<section class="page bubble-project" id="empty-vein" lang="en" aria-labelledby="empty-vein-heading">
+<nav class="top"><a href="#works">← Back to Portfolio</a></nav>
+<header class="bubble-intro"><small>02 / Interactive game</small><h1 id="empty-vein-heading">EMPTY VEIN</h1></header>
+<figure class="project-hero"><img src="empty-vein.png" alt="Blue and violet industrial landscape from EMPTY VEIN" loading="lazy"></figure>
+<div class="bubble-story">
+<section><small>01 / Research</small><h2>A landscape after coal</h2><p>I began with the former coal mines of my hometown. Its industrial sites hold traces of the labour that once sustained the area, even as their original purpose has disappeared.</p></section>
+<section><small>02 / Development</small><h2>Building a world to explore</h2><p>I translated that setting into a navigable game environment. Colour, industrial forms and spatial layout turn the site into a place the player encounters through movement.</p></section>
+<section><small>03 / Outcome</small><h2>EMPTY VEIN</h2><p>The game uses exploration to ask how a place can still be remembered after the industry that shaped it has gone.</p><div class="work-gallery game-stills"><figure><img src="game-1.jpg" alt="EMPTY VEIN gameplay still 1" loading="lazy"><figcaption>Gameplay still 01</figcaption></figure><figure><img src="game-2.jpg" alt="EMPTY VEIN gameplay still 2" loading="lazy"><figcaption>Gameplay still 02</figcaption></figure><figure><img src="game-3.jpg" alt="EMPTY VEIN gameplay still 3" loading="lazy"><figcaption>Gameplay still 03</figcaption></figure></div><p><a href="https://youtu.be/dWl8iA2BB-k">Watch the gameplay film ↗</a></p></section>
+</div></section>
+<section class="page bubble-project" id="desire-burning" lang="en" aria-labelledby="desire-burning-heading">
+<nav class="top"><a href="#works">← Back to Portfolio</a></nav>
+<header class="bubble-intro"><small>03 / Performance, installation and moving image</small><h1 id="desire-burning-heading">DESIRE:burning</h1></header>
+<figure class="project-hero"><img src="fandom-still.png" alt="Two performers hold a red balloon between their backs" loading="lazy"></figure>
+<div class="bubble-story">
+<section><small>01 / Research</small><h2>Desire and the idol industry</h2><p>I looked at how the idol industry creates attachment and how fans invest emotion in an image that is carefully staged.</p></section>
+<section><small>02 / Development</small><h2>Staging an unstable relationship</h2><p>A red balloon became the point of contact between two performers. Its fragility gives their push and pull a physical form.</p></section>
+<section><small>03 / Outcome</small><h2>DESIRE:burning</h2><p>Performance, installation and moving image come together around that fragile object. A scarlet curtain frames the work as a stage for desire.</p><p><a href="https://youtu.be/tepR42NWUu8">Watch the project film ↗</a></p><div class="work-gallery"><figure><img src="desire-still-02.png" alt="Frame from the DESIRE:burning performance film" loading="lazy"><figcaption>Performance still 02</figcaption></figure><figure><img src="desire-still-03.png" alt="Another frame from the DESIRE:burning performance film" loading="lazy"><figcaption>Performance still 03</figcaption></figure></div></section>
+</div></section>
+<section class="page bubble-project" id="as-object" lang="en" aria-labelledby="as-object-heading">
+<nav class="top"><a href="#works">← Back to Portfolio</a></nav>
+<header class="bubble-intro"><small>04 / Moving image</small><h1 id="as-object-heading">AS OBJECT</h1></header>
+<figure class="project-hero"><img src="as-object.png" alt="Still from AS OBJECT" loading="lazy"></figure>
+<div class="bubble-story">
+<section><small>01 / Research</small><h2>Objects we turn to</h2><p>I began with transitional objects and the comfort people seek in ordinary things. The project asks what happens when an object begins to carry part of a person’s emotional life.</p></section>
+<section><small>02 / Development</small><h2>Filming attachment</h2><p>The film follows changes in the relationship between a person and the things they rely on, using encounters with familiar objects to show how comfort can become dependence.</p></section>
+<section><small>03 / Outcome</small><h2>AS OBJECT</h2><p>The moving image brings those shifts together, following how the meaning of an object changes as the relationship with it deepens.</p><p><a href="https://youtu.be/CuLxV4Fg0uc">Watch the project film ↗</a></p><div class="work-gallery"><figure><img src="as-object-still-02.png" alt="Image from the AS OBJECT project archive" loading="lazy"><figcaption>Project still 02</figcaption></figure><figure><img src="as-object-still-03.png" alt="Photograph from the AS OBJECT project archive" loading="lazy"><figcaption>Project photograph 03</figcaption></figure></div></section>
+</div></section>
+<main class="cover" id="home"><h1><a class="signature fairy-name" href="#info" aria-label="Yuna Yang, Yang Yueyang"><span class="fairy-letters" aria-hidden="true"><span class="fairy-word"><i style="--w:0.8320610687022901;--sx:675.2293577981652%;--sy:561.8320610687023%;--px:3.508771929824561%;--py:96.52892561983471%"></i><i style="--w:0.9298245614035088;--sx:694.3396226415094%;--sy:645.6140350877192%;--px:42.698412698412696%;--py:73.63344051446946%"></i><i style="--w:1.1092436974789917;--sx:557.5757575757576%;--sy:618.4873949579833%;--px:22.68211920529801%;--py:52.51215559157212%"></i><i style="--w:0.8608695652173913;--sx:743.4343434343434%;--sy:640%;--px:2.6687598116169546%;--py:3.22061191626409%"></i></span><span class="fairy-word"><i style="--w:0.8320610687022901;--sx:675.2293577981652%;--sy:561.8320610687023%;--px:3.508771929824561%;--py:96.52892561983471%"></i><i style="--w:0.8608695652173913;--sx:743.4343434343434%;--sy:640%;--px:2.6687598116169546%;--py:3.22061191626409%"></i><i style="--w:1.1092436974789917;--sx:557.5757575757576%;--sy:618.4873949579833%;--px:22.68211920529801%;--py:52.51215559157212%"></i><i style="--w:0.55;--sx:955.8441558441558%;--sy:525.7142857142857%;--px:3.6418816388467374%;--py:26.34228187919463%"></i></span></span><span class="name-caption">Yang Yueyang</span></a></h1><div class="gate"><svg class="leaf left" viewBox="0 0 240 490" aria-hidden="true"><g  fill="none" stroke="currentColor" stroke-width="2.1" stroke-linecap="round"><path d="M8 470V78C8 23 52 53 29 76C16 89 9 65 23 65 M12 138C55 173 89 158 124 113S186 62 210 92S222 145 198 140C178 136 192 116 201 124 M12 460Q102 483 227 458 M227 457V136C227 111 208 88 212 59C216 32 242 46 230 60C223 68 219 56 225 53" stroke-width="4"/><path d="M28 447V194q0 -23 14 -20t4 18q-8 5 -8 -5 M28 446q-20 -3 -14 -20t14 2 M28 316c-33 -7 -29 -40 -10 -35s14 25 2 20 m8 15c22 12 32 -17 16 -20s-14 13 -8 11"/><path d="M61 447V194q0 -23 14 -20t4 18q-8 5 -8 -5 M61 446q-20 -3 -14 -20t14 2 M61 316c-33 -7 -29 -40 -10 -35s14 25 2 20 m8 15c22 12 32 -17 16 -20s-14 13 -8 11"/><path d="M94 447V194q0 -23 14 -20t4 18q-8 5 -8 -5 M94 446q-20 -3 -14 -20t14 2 M94 316c-33 -7 -29 -40 -10 -35s14 25 2 20 m8 15c22 12 32 -17 16 -20s-14 13 -8 11"/><path d="M127 447V179q0 -23 14 -20t4 18q-8 5 -8 -5 M127 446q-20 -3 -14 -20t14 2 M127 316c-33 -7 -29 -40 -10 -35s14 25 2 20 m8 15c22 12 32 -17 16 -20s-14 13 -8 11"/><path d="M160 447V164q0 -23 14 -20t4 18q-8 5 -8 -5 M160 446q-20 -3 -14 -20t14 2 M160 316c-33 -7 -29 -40 -10 -35s14 25 2 20 m8 15c22 12 32 -17 16 -20s-14 13 -8 11"/><path d="M193 447V149q0 -23 14 -20t4 18q-8 5 -8 -5 M193 446q-20 -3 -14 -20t14 2 M193 316c-33 -7 -29 -40 -10 -35s14 25 2 20 m8 15c22 12 32 -17 16 -20s-14 13 -8 11"/><path d="M15 233C49 202 101 208 115 172S84 134 78 152S92 174 99 162 M225 245C191 234 146 247 132 214S153 173 164 187S151 211 147 200 M15 433C52 390 77 391 109 430S161 459 184 422S221 393 227 413" stroke-width="3"/></g></svg><svg class="leaf right" viewBox="0 0 240 490" aria-hidden="true"><g transform="translate(240) scale(-1 1)" fill="none" stroke="currentColor" stroke-width="2.1" stroke-linecap="round"><path d="M8 470V78C8 23 52 53 29 76C16 89 9 65 23 65 M12 138C55 173 89 158 124 113S186 62 210 92S222 145 198 140C178 136 192 116 201 124 M12 460Q102 483 227 458 M227 457V136C227 111 208 88 212 59C216 32 242 46 230 60C223 68 219 56 225 53" stroke-width="4"/><path d="M28 447V194q0 -23 14 -20t4 18q-8 5 -8 -5 M28 446q-20 -3 -14 -20t14 2 M28 316c-33 -7 -29 -40 -10 -35s14 25 2 20 m8 15c22 12 32 -17 16 -20s-14 13 -8 11"/><path d="M61 447V194q0 -23 14 -20t4 18q-8 5 -8 -5 M61 446q-20 -3 -14 -20t14 2 M61 316c-33 -7 -29 -40 -10 -35s14 25 2 20 m8 15c22 12 32 -17 16 -20s-14 13 -8 11"/><path d="M94 447V194q0 -23 14 -20t4 18q-8 5 -8 -5 M94 446q-20 -3 -14 -20t14 2 M94 316c-33 -7 -29 -40 -10 -35s14 25 2 20 m8 15c22 12 32 -17 16 -20s-14 13 -8 11"/><path d="M127 447V179q0 -23 14 -20t4 18q-8 5 -8 -5 M127 446q-20 -3 -14 -20t14 2 M127 316c-33 -7 -29 -40 -10 -35s14 25 2 20 m8 15c22 12 32 -17 16 -20s-14 13 -8 11"/><path d="M160 447V164q0 -23 14 -20t4 18q-8 5 -8 -5 M160 446q-20 -3 -14 -20t14 2 M160 316c-33 -7 -29 -40 -10 -35s14 25 2 20 m8 15c22 12 32 -17 16 -20s-14 13 -8 11"/><path d="M193 447V149q0 -23 14 -20t4 18q-8 5 -8 -5 M193 446q-20 -3 -14 -20t14 2 M193 316c-33 -7 -29 -40 -10 -35s14 25 2 20 m8 15c22 12 32 -17 16 -20s-14 13 -8 11"/><path d="M15 233C49 202 101 208 115 172S84 134 78 152S92 174 99 162 M225 245C191 234 146 247 132 214S153 173 164 187S151 211 147 200 M15 433C52 390 77 391 109 430S161 459 184 422S221 393 227 413" stroke-width="3"/></g></svg><button class="latch" type="button" aria-controls="inside" aria-expanded="false"><span>Open</span></button><div class="inside" id="inside"><a href="#info">Info</a><a href="#works">Portfolio</a><button type="button" class="gate-back">← Back</button></div></div></main>
+<script>
+const gate = document.querySelector('.gate');
+const latch = document.querySelector('.latch');
+latch.addEventListener('click', event => {
+  gate.classList.add('opened');
+  latch.setAttribute('aria-expanded', 'true');
+  if (event.detail === 0) gate.querySelector('.inside a').focus({preventScroll: true});
+});
+const gateBack = gate.querySelector('.gate-back');
+gateBack.addEventListener('click', event => {
+  gate.classList.remove('opened');
+  latch.setAttribute('aria-expanded', 'false');
+  if (event.detail === 0) latch.focus({preventScroll: true});
+});
+document.querySelectorAll('.page-back').forEach(link => {
+  link.addEventListener('click', event => {
+    gate.classList.add('opened');
+    latch.setAttribute('aria-expanded', 'true');
+    if (event.detail === 0) requestAnimationFrame(() => gate.querySelector('.inside a').focus({preventScroll: true}));
+  });
+});
+</script></body></html>
+
+
+
+
+
