@@ -13,7 +13,7 @@
 .survey{display:none;min-height:calc(100svh - 76px);padding:clamp(32px,7vh,76px) 22px 40px;max-width:900px;margin:0 auto}.survey.active{display:block}.home.hidden{display:none}.survey-top{display:flex;justify-content:space-between;align-items:center;border-bottom:1px solid var(--line);padding-bottom:16px;font-size:11px;letter-spacing:.15em;text-transform:uppercase;color:var(--muted)}.back{border:0;background:none;padding:8px 0;cursor:pointer;text-decoration:underline;text-underline-offset:4px}.progress{display:flex;gap:7px;margin:34px 0 50px}.progress i{height:3px;background:#dcd7ca;flex:1}.progress i.done{background:var(--accent-dark)}.q-kicker{font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:var(--muted);margin:0 0 18px}.q-title{font:clamp(30px,4.5vw,54px)/1.12 var(--serif);letter-spacing:-.03em;margin:0;max-width:760px}.q-zh{font:16px/1.6 var(--sans);color:var(--muted);margin:13px 0 36px}.scale{display:grid;grid-template-columns:repeat(5,1fr);gap:10px}.option{border:1px solid var(--line);background:rgba(255,254,249,.55);min-height:92px;padding:13px 8px;cursor:pointer;transition:.2s;text-align:center}.option:hover,.option.selected{background:var(--accent);border-color:var(--accent-dark);transform:translateY(-2px)}.option strong{display:block;font:24px var(--serif);margin-bottom:7px}.option span{font-size:11px;line-height:1.3;display:block}.scale-labels{display:flex;justify-content:space-between;color:var(--muted);font-size:10px;letter-spacing:.08em;text-transform:uppercase;margin-top:12px}.nextrow{display:flex;justify-content:flex-end;margin-top:42px}.next{padding:15px 22px;background:var(--ink);color:var(--paper);border:0;cursor:pointer;font-size:11px;letter-spacing:.14em;text-transform:uppercase}.next:disabled{opacity:.35;cursor:not-allowed}.thanks{max-width:650px;padding:12vh 0}.thanks h2{font:clamp(40px,6vw,68px)/1 var(--serif);letter-spacing:-.04em}.thanks p{font:18px/1.6 var(--serif);color:var(--muted)}.notice{font-size:11px;line-height:1.5;color:var(--muted);margin-top:28px;max-width:600px}.restart{margin-top:15px;border:0;background:none;text-decoration:underline;cursor:pointer;padding:6px 0}
 @media(max-width:650px){.topbar{height:60px}.topnote{font-size:9px}.intro{grid-template-columns:1fr;gap:12px}.title{font-size:clamp(45px,13vw,72px)}.intro-aside{max-width:310px;font-size:14px}.art-frame{height:clamp(210px,63vw,310px)}.bottomrow{align-items:flex-start}.bottomcopy{font-size:14px;max-width:58%}.start{gap:8px;white-space:normal;font-size:9px}.arrow{width:52px;height:52px;flex:0 0 52px}.hint{display:none}.survey{min-height:calc(100svh - 60px)}.progress{margin:28px 0 38px}.scale{gap:6px}.option{min-height:86px;padding:10px 4px}.option span{font-size:10px}.option strong{font-size:22px}.q-zh{font-size:14px}}
 @media(prefers-reduced-motion:reduce){*,*::before,*::after{scroll-behavior:auto!important;animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important}}
-.top-actions{display:flex;align-items:center;gap:22px}.language-select{max-width:150px;border:1px solid var(--line);border-radius:2px;background:var(--white);padding:9px 28px 9px 10px;color:var(--ink);font:12px var(--sans);cursor:pointer}.language-select:focus-visible,.start:focus-visible,.option:focus-visible,.next:focus-visible{outline:3px solid var(--accent-dark);outline-offset:3px}.privacy-banner{padding:12px 22px;text-align:center;background:#e9efda;border-bottom:1px solid #d7dfbf;color:#344118;font-size:12px;line-height:1.4;letter-spacing:.03em}.q-zh{margin:13px 0 36px}@media(max-width:650px){.topbar{padding:0 17px}.top-actions{gap:10px}.language-select{max-width:124px;padding:8px 4px;font-size:11px}.privacy-banner{font-size:11px}.title{overflow-wrap:anywhere}}
+.top-actions{display:flex;align-items:center;gap:22px}.language-select{max-width:150px;border:1px solid var(--line);border-radius:2px;background:var(--white);padding:9px 28px 9px 10px;color:var(--ink);font:12px var(--sans);cursor:pointer}.language-select:focus-visible,.start:focus-visible,.option:focus-visible,.next:focus-visible{outline:3px solid var(--accent-dark);outline-offset:3px}.privacy-banner{padding:12px 22px;text-align:center;background:#e9efda;border-bottom:1px solid #d7dfbf;color:#344118;font-size:12px;line-height:1.4;letter-spacing:.03em}.q-zh{margin:13px 0 36px}.option span{overflow-wrap:anywhere}@media(max-width:650px){.topbar{padding:0 17px}.top-actions{gap:10px}.language-select{max-width:124px;padding:8px 4px;font-size:11px}.privacy-banner{font-size:11px}.title{overflow-wrap:anywhere}.scale-labels{display:none}}
 </style>
 </head>
 <body>
@@ -29,13 +29,14 @@
 </main>
 <section class="survey" id="questions" aria-live="polite">
   <div class="survey-top"><button class="back" id="back">← Back</button><span id="surveyLabel">Friendship study</span></div>
+  <p class="notice" id="surveyContext">Think of one close friend from the past three months. Answer every question about this same friendship.</p>
   <div id="questionView">
     <div class="progress" id="progress" aria-label="Question progress"></div>
     <p class="q-kicker" id="qKicker"></p><h2 class="q-title" id="qTitle"></h2><p class="q-zh" id="qHelp">Choose the option that best matches your experience.</p>
     <div class="scale" id="scale" role="radiogroup" aria-label="Choose how much you agree"></div><div class="scale-labels"><span id="scaleLow">Strongly disagree</span><span id="scaleHigh">Strongly agree</span></div>
     <div class="nextrow"><button class="next" id="next" disabled>Next question&nbsp; →</button></div>
     <p class="notice" id="submitError" role="alert" hidden>We could not save your answers. Please try again.</p>
-    <p class="notice" id="surveyNotice">When you finish, your four choices will be saved for the momo research team. We do not ask for your name or contact details. You can leave before finishing if you prefer not to submit.</p>
+    <p class="notice" id="surveyNotice">When you finish, your six choices will be saved for the momo research team. We do not ask for your name or contact details. You can leave before finishing if you prefer not to submit.</p>
   </div>
   <div class="thanks" id="thanks" hidden><p class="q-kicker" id="thanksKicker">Thank you</p><h2 id="thanksTitle">Thank you for sharing.</h2><p id="thanksBody">Your answers have been saved for the momo research team.</p><button class="restart" id="restart">Return to the beginning</button></div>
 </section>
@@ -45,90 +46,102 @@ const translations = {
     langLabel: 'Language', privacy: 'All responses are anonymous.', eyebrow: 'A small reflection on friendship', title1: 'How do we', title2: 'care for each other?',
     aside: 'Sometimes care in friendship is easy to feel. Sometimes it lives in needs we never say aloud.', imageAlt: 'A hand-drawn table surrounded by chairs, suggesting friends gathered together', caption: 'A place for every voice',
     bottom: 'A short reflection on the support we give, the support we need, and what can remain unspoken between friends.', start: 'Begin the questions', hint: 'Tap to continue ↗',
-    back: '← Back', survey: 'Friendship study', question: 'Question', help: 'Choose the option that best matches your experience.', scaleAria: 'Choose how much you agree',
-    options: ['Strongly disagree', 'Disagree', 'Neither', 'Agree', 'Strongly agree'], next: 'Next question →', finish: 'Finish reflection →', saving: 'Saving…', retry: 'Try again →',
-    error: 'We could not save your answers. Please try again.', notice: 'When you finish, your four choices will be saved for the momo research team. We do not ask for your name or contact details. You can leave before finishing if you prefer not to submit.',
+    back: '← Back', survey: 'Friendship study', question: 'Question', context: 'Think of one close friend from the past three months. Answer every question about this same friendship.', help: 'Choose the option that best matches your experience.', scaleAria: 'Choose one answer',
+    scales: { direction: ['Much less', 'A little less', 'About the same', 'A little more', 'Much more'], frequency: ['Never', 'Rarely', 'Sometimes', 'Often', 'Very often'], difference: ['Not at all different', 'Slightly different', 'Moderately different', 'Quite different', 'Very different'], satisfaction: ['Very dissatisfied', 'Dissatisfied', 'Neither satisfied nor dissatisfied', 'Satisfied', 'Very satisfied'] }, next: 'Next question →', finish: 'Finish reflection →', saving: 'Saving…', retry: 'Try again →',
+    error: 'We could not save your answers. Please try again.', notice: 'When you finish, your six choices will be saved for the momo research team. We do not ask for your name or contact details. You can leave before finishing if you prefer not to submit.',
     thanksKicker: 'Thank you', thanksTitle: 'Thank you for sharing.', thanksBody: 'Your answers have been saved for the momo research team.', restart: 'Return to the beginning',
     questions: [
-      'I often give emotional support to friends but rarely ask for the same support myself.',
-      'I find it difficult to tell a friend what emotional support I need.',
-      'I feel that my friends understand the kind of emotional support I need.',
-      'I feel disappointed when a friend cannot offer the emotional support I need.'
+      'Compared with the emotional support you receive from this friend, how much do you give?',
+      'How often do you support this friend even when you feel emotionally tired?',
+      'How often do you hold back from telling this friend what support you need?',
+      'How different are your expectations of how friends should support each other?',
+      'How satisfied are you with the balance of emotional support in this friendship?',
+      'How often have you thought about distancing yourself because you felt unsupported?'
     ]
   },
   'zh-Hans': {
     langLabel: '语言', privacy: '所有回答均以匿名形式提交。', eyebrow: '关于友情的一次小小思考', title1: '我们如何', title2: '关心彼此？',
     aside: '友情中的关心，有时很容易感受到；有时却藏在没有说出口的需要里。', imageAlt: '手绘的餐桌与围绕餐桌的椅子，像朋友们聚在一起', caption: '让每个人都有表达的空间',
     bottom: '想一想我们给予朋友的支持、自己需要的支持，以及友情中那些未说出口的期待。', start: '开始回答', hint: '点击继续 ↗',
-    back: '← 返回', survey: '友情研究', question: '第', help: '请选择最符合你经历的选项。', scaleAria: '请选择你的认同程度',
-    options: ['非常不同意', '不同意', '一般', '同意', '非常同意'], next: '下一题 →', finish: '完成并提交 →', saving: '正在保存…', retry: '重试 →',
-    error: '答案未能保存，请重试。', notice: '完成后，你对四道题的选择会保存供 momo 小组研究使用。我们不询问姓名或联系方式。如果不想提交，可以在完成前离开。',
+    back: '← 返回', survey: '友情研究', question: '第', context: '请回想过去三个月里的一位亲近朋友。六道题都请针对同一段友情作答。', help: '请选择最符合你经历的选项。', scaleAria: '请选择一个答案',
+    scales: { direction: ['少很多', '少一点', '差不多', '多一点', '多很多'], frequency: ['从不', '很少', '有时', '经常', '非常经常'], difference: ['完全没有差异', '差异较小', '差异一般', '差异较大', '差异很大'], satisfaction: ['非常不满意', '不满意', '一般', '满意', '非常满意'] }, next: '下一题 →', finish: '完成并提交 →', saving: '正在保存…', retry: '重试 →',
+    error: '答案未能保存，请重试。', notice: '完成后，你对六道题的选择会保存供 momo 小组研究使用。我们不询问姓名或联系方式。如果不想提交，可以在完成前离开。',
     thanksKicker: '谢谢', thanksTitle: '感谢你的分享。', thanksBody: '你的答案已保存，momo 小组可以查看统计结果。', restart: '返回首页',
     questions: [
-      '我经常给予朋友情绪上的支持，却很少向他们寻求同样的支持。',
-      '我觉得很难告诉朋友自己需要什么样的情绪支持。',
-      '我觉得朋友理解我需要什么样的情绪支持。',
-      '当朋友无法给予我需要的情绪支持时，我会感到失落。'
+      '与你从这位朋友那里得到的情绪支持相比，你给予了多少？',
+      '即使自己在情绪上已经疲惫，你有多常继续支持这位朋友？',
+      '你有多常克制自己，不告诉这位朋友你需要什么支持？',
+      '你们对朋友应该如何相互支持的期待有多大差异？',
+      '你对这段友情中情绪支持的平衡程度有多满意？',
+      '你有多常因为觉得没有得到支持而想疏远这位朋友？'
     ]
   },
   'zh-Hant': {
     langLabel: '語言', privacy: '所有回答均以匿名形式提交。', eyebrow: '關於友情的一次小小思考', title1: '我們如何', title2: '關心彼此？',
     aside: '友情中的關心，有時很容易感受到；有時卻藏在沒有說出口的需要裡。', imageAlt: '手繪的餐桌與圍繞餐桌的椅子，像朋友們聚在一起', caption: '讓每個人都有表達的空間',
     bottom: '想一想我們給予朋友的支持、自己需要的支持，以及友情中那些未說出口的期待。', start: '開始回答', hint: '點擊繼續 ↗',
-    back: '← 返回', survey: '友情研究', question: '第', help: '請選擇最符合你經歷的選項。', scaleAria: '請選擇你的認同程度',
-    options: ['非常不同意', '不同意', '一般', '同意', '非常同意'], next: '下一題 →', finish: '完成並提交 →', saving: '正在儲存…', retry: '重試 →',
-    error: '答案未能儲存，請重試。', notice: '完成後，你對四道題的選擇會儲存供 momo 小組研究使用。我們不詢問姓名或聯絡方式。如果不想提交，可以在完成前離開。',
+    back: '← 返回', survey: '友情研究', question: '第', context: '請回想過去三個月裡的一位親近朋友。六道題都請針對同一段友情作答。', help: '請選擇最符合你經歷的選項。', scaleAria: '請選擇一個答案',
+    scales: { direction: ['少很多', '少一點', '差不多', '多一點', '多很多'], frequency: ['從不', '很少', '有時', '經常', '非常經常'], difference: ['完全沒有差異', '差異較小', '差異一般', '差異較大', '差異很大'], satisfaction: ['非常不滿意', '不滿意', '一般', '滿意', '非常滿意'] }, next: '下一題 →', finish: '完成並提交 →', saving: '正在儲存…', retry: '重試 →',
+    error: '答案未能儲存，請重試。', notice: '完成後，你對六道題的選擇會儲存供 momo 小組研究使用。我們不詢問姓名或聯絡方式。如果不想提交，可以在完成前離開。',
     thanksKicker: '謝謝', thanksTitle: '感謝你的分享。', thanksBody: '你的答案已儲存，momo 小組可以查看統計結果。', restart: '返回首頁',
     questions: [
-      '我經常給予朋友情緒上的支持，卻很少向他們尋求同樣的支持。',
-      '我覺得很難告訴朋友自己需要什麼樣的情緒支持。',
-      '我覺得朋友理解我需要什麼樣的情緒支持。',
-      '當朋友無法給予我需要的情緒支持時，我會感到失落。'
+      '與你從這位朋友那裡得到的情緒支持相比，你給予了多少？',
+      '即使自己在情緒上已經疲憊，你有多常繼續支持這位朋友？',
+      '你有多常克制自己，不告訴這位朋友你需要什麼支持？',
+      '你們對朋友應該如何相互支持的期待有多大差異？',
+      '你對這段友情中情緒支持的平衡程度有多滿意？',
+      '你有多常因為覺得沒有得到支持而想疏遠這位朋友？'
     ]
   },
   ja: {
     langLabel: '言語', privacy: '回答はすべて匿名で送信されます。', eyebrow: '友情について少し考える時間', title1: '私たちはどう', title2: '支え合っている？',
     aside: '友人の思いやりを感じられるときもあれば、言葉にできない願いの中に隠れているときもあります。', imageAlt: '友人が集まる食卓を思わせる、テーブルと椅子の手描きの絵', caption: '誰もが声を届けられる場所',
     bottom: '友人に与える支え、自分が必要とする支え、そして言葉にされない期待について考える短いアンケートです。', start: '質問を始める', hint: 'タップして進む ↗',
-    back: '← 戻る', survey: '友情についての調査', question: '質問', help: 'あなたの経験に最も近いものを選んでください。', scaleAria: '同意の程度を選んでください',
-    options: ['まったくそう思わない', 'そう思わない', 'どちらともいえない', 'そう思う', 'とてもそう思う'], next: '次の質問 →', finish: '回答を送信 →', saving: '保存中…', retry: '再試行 →',
-    error: '回答を保存できませんでした。もう一度お試しください。', notice: '終了すると、4つの回答がmomoの調査チームに保存されます。氏名や連絡先は尋ねません。送信したくない場合は、終了前にページを閉じてください。',
+    back: '← 戻る', survey: '友情についての調査', question: '質問', context: '過去3か月で親しくしている友人を1人思い浮かべてください。6つの質問すべてに、その同じ友人について答えてください。', help: 'あなたの経験に最も近いものを選んでください。', scaleAria: '回答を1つ選んでください',
+    scales: { direction: ['ずっと少ない', '少し少ない', 'ほぼ同じ', '少し多い', 'ずっと多い'], frequency: ['まったくない', 'めったにない', 'ときどき', 'よくある', '非常によくある'], difference: ['まったく違わない', '少し違う', 'ある程度違う', 'かなり違う', '大きく違う'], satisfaction: ['まったく満足していない', '満足していない', 'どちらともいえない', '満足している', 'とても満足している'] }, next: '次の質問 →', finish: '回答を送信 →', saving: '保存中…', retry: '再試行 →',
+    error: '回答を保存できませんでした。もう一度お試しください。', notice: '終了すると、6つの回答がmomoの調査チームに保存されます。氏名や連絡先は尋ねません。送信したくない場合は、終了前にページを閉じてください。',
     thanksKicker: 'ありがとう', thanksTitle: 'ご回答ありがとうございます。', thanksBody: '回答はmomoの調査チームに保存されました。', restart: '最初に戻る',
     questions: [
-      '私は友人を精神的に支えることが多い一方で、自分から同じような支えを求めることはほとんどありません。',
-      '自分にどのような心の支えが必要かを友人に伝えるのは難しいと感じます。',
-      '友人は、私がどのような心の支えを必要としているか理解していると思います。',
-      '友人から必要な心の支えを得られないと、がっかりします。'
+      'この友人から受ける心の支えと比べて、あなたはどのくらい支えを与えていますか？',
+      '気持ちが疲れているときでも、この友人をどのくらいの頻度で支えますか？',
+      '必要な支えをこの友人に伝えるのを、どのくらいの頻度でためらいますか？',
+      '友人同士がどう支え合うべきかについて、あなたたちの期待はどのくらい違いますか？',
+      'この友情における心の支えのバランスに、どのくらい満足していますか？',
+      '支えてもらえていないと感じ、この友人と距離を置こうと思ったことはどのくらいありますか？'
     ]
   },
   ko: {
     langLabel: '언어', privacy: '모든 응답은 익명으로 제출됩니다.', eyebrow: '우정에 대해 잠시 생각해 보기', title1: '우리는 어떻게', title2: '서로를 돌볼까요?',
     aside: '친구의 배려가 쉽게 느껴질 때도 있지만, 말하지 못한 바람 속에 숨어 있을 때도 있습니다.', imageAlt: '친구들이 함께 모인 모습을 떠올리게 하는 식탁과 의자의 손그림', caption: '모두의 목소리를 위한 자리',
     bottom: '우리가 친구에게 주는 지지, 자신에게 필요한 지지, 그리고 말하지 못한 기대를 돌아보는 짧은 설문입니다.', start: '질문 시작하기', hint: '눌러서 계속하기 ↗',
-    back: '← 뒤로', survey: '우정에 관한 연구', question: '질문', help: '자신의 경험과 가장 가까운 항목을 선택해 주세요.', scaleAria: '동의하는 정도를 선택해 주세요',
-    options: ['전혀 동의하지 않음', '동의하지 않음', '보통', '동의함', '매우 동의함'], next: '다음 질문 →', finish: '응답 제출 →', saving: '저장 중…', retry: '다시 시도 →',
-    error: '응답을 저장하지 못했습니다. 다시 시도해 주세요.', notice: '설문을 마치면 네 가지 선택이 momo 연구팀에 저장됩니다. 이름이나 연락처는 묻지 않습니다. 제출을 원하지 않으면 완료 전에 페이지를 닫아 주세요.',
+    back: '← 뒤로', survey: '우정에 관한 연구', question: '질문', context: '지난 3개월 동안 가까웠던 친구 한 명을 떠올려 주세요. 여섯 문항 모두 같은 친구와의 관계를 기준으로 답해 주세요.', help: '자신의 경험과 가장 가까운 항목을 선택해 주세요.', scaleAria: '답변 하나를 선택해 주세요',
+    scales: { direction: ['훨씬 적게', '조금 적게', '비슷하게', '조금 더 많이', '훨씬 더 많이'], frequency: ['전혀 없음', '드물게', '가끔', '자주', '매우 자주'], difference: ['전혀 다르지 않음', '조금 다름', '보통 정도로 다름', '꽤 다름', '매우 다름'], satisfaction: ['매우 불만족', '불만족', '보통', '만족', '매우 만족'] }, next: '다음 질문 →', finish: '응답 제출 →', saving: '저장 중…', retry: '다시 시도 →',
+    error: '응답을 저장하지 못했습니다. 다시 시도해 주세요.', notice: '설문을 마치면 여섯 가지 선택이 momo 연구팀에 저장됩니다. 이름이나 연락처는 묻지 않습니다. 제출을 원하지 않으면 완료 전에 페이지를 닫아 주세요.',
     thanksKicker: '감사합니다', thanksTitle: '응답해 주셔서 감사합니다.', thanksBody: '응답이 momo 연구팀에 저장되었습니다.', restart: '처음으로 돌아가기',
     questions: [
-      '나는 친구들에게 정서적 지지를 자주 해주지만, 나 자신을 위해 같은 지지를 부탁하는 일은 드뭅니다.',
-      '친구에게 내가 어떤 정서적 지지가 필요한지 말하기 어렵습니다.',
-      '친구들이 내가 어떤 정서적 지지가 필요한지 이해한다고 느낍니다.',
-      '친구가 내가 필요한 정서적 지지를 해주지 못할 때 실망감을 느낍니다.'
+      '이 친구에게서 받는 정서적 지지와 비교해, 나는 얼마나 많이 지지해 주나요?',
+      '감정적으로 지쳐 있을 때에도 이 친구를 얼마나 자주 지지해 주나요?',
+      '내게 필요한 지지를 이 친구에게 말하기를 얼마나 자주 망설이나요?',
+      '친구들이 서로 어떻게 지지해야 하는지에 대한 두 사람의 기대는 얼마나 다른가요?',
+      '이 우정에서 정서적 지지가 균형을 이루는 정도에 얼마나 만족하나요?',
+      '지지받지 못한다고 느껴 이 친구와 거리를 두고 싶다고 생각한 적이 얼마나 자주 있나요?'
     ]
   },
   es: {
     langLabel: 'Idioma', privacy: 'Todas las respuestas se envían de forma anónima.', eyebrow: 'Una breve reflexión sobre la amistad', title1: '¿Cómo nos', title2: 'cuidamos mutuamente?',
     aside: 'A veces es fácil sentir el cariño en una amistad. Otras veces queda oculto en necesidades que nunca expresamos.', imageAlt: 'Dibujo a mano de una mesa rodeada de sillas, que evoca una reunión de amistades', caption: 'Un lugar para cada voz',
     bottom: 'Una breve reflexión sobre el apoyo que damos, el que necesitamos y lo que queda sin decir entre amistades.', start: 'Empezar las preguntas', hint: 'Toca para continuar ↗',
-    back: '← Volver', survey: 'Estudio sobre la amistad', question: 'Pregunta', help: 'Elige la opción que mejor refleje tu experiencia.', scaleAria: 'Elige tu grado de acuerdo',
-    options: ['Muy en desacuerdo', 'En desacuerdo', 'Ni de acuerdo ni en desacuerdo', 'De acuerdo', 'Muy de acuerdo'], next: 'Siguiente pregunta →', finish: 'Enviar respuestas →', saving: 'Guardando…', retry: 'Intentar de nuevo →',
-    error: 'No pudimos guardar tus respuestas. Inténtalo de nuevo.', notice: 'Al terminar, tus cuatro respuestas se guardarán para el equipo de investigación de momo. No pedimos tu nombre ni datos de contacto. Si prefieres no enviarlas, puedes salir antes de terminar.',
+    back: '← Volver', survey: 'Estudio sobre la amistad', question: 'Pregunta', context: 'Piensa en una amistad cercana de los últimos tres meses. Responde las seis preguntas pensando en esa misma persona.', help: 'Elige la opción que mejor refleje tu experiencia.', scaleAria: 'Elige una respuesta',
+    scales: { direction: ['Mucho menos', 'Un poco menos', 'Más o menos lo mismo', 'Un poco más', 'Mucho más'], frequency: ['Nunca', 'Rara vez', 'A veces', 'A menudo', 'Muy a menudo'], difference: ['Nada diferentes', 'Un poco diferentes', 'Moderadamente diferentes', 'Bastante diferentes', 'Muy diferentes'], satisfaction: ['Muy insatisfecho/a', 'Insatisfecho/a', 'Ni satisfecho/a ni insatisfecho/a', 'Satisfecho/a', 'Muy satisfecho/a'] }, next: 'Siguiente pregunta →', finish: 'Enviar respuestas →', saving: 'Guardando…', retry: 'Intentar de nuevo →',
+    error: 'No pudimos guardar tus respuestas. Inténtalo de nuevo.', notice: 'Al terminar, tus seis respuestas se guardarán para el equipo de investigación de momo. No pedimos tu nombre ni datos de contacto. Si prefieres no enviarlas, puedes salir antes de terminar.',
     thanksKicker: 'Gracias', thanksTitle: 'Gracias por compartir.', thanksBody: 'Tus respuestas se han guardado para el equipo de investigación de momo.', restart: 'Volver al inicio',
     questions: [
-      'A menudo doy apoyo emocional a mis amistades, pero rara vez pido el mismo apoyo para mí.',
-      'Me resulta difícil decirle a una amistad qué tipo de apoyo emocional necesito.',
-      'Siento que mis amistades entienden qué tipo de apoyo emocional necesito.',
-      'Me siento decepcionado/a cuando una amistad no puede darme el apoyo emocional que necesito.'
+      'En comparación con el apoyo emocional que recibes de esta amistad, ¿cuánto apoyo le das tú?',
+      '¿Con qué frecuencia apoyas a esta persona incluso cuando te sientes emocionalmente agotado/a?',
+      '¿Con qué frecuencia evitas decirle a esta persona qué apoyo necesitas?',
+      '¿Cuánto difieren sus expectativas sobre cómo deben apoyarse los amigos?',
+      '¿Qué tan satisfecho/a estás con el equilibrio del apoyo emocional en esta amistad?',
+      '¿Con qué frecuencia has pensado en distanciarte de esta persona porque sentiste que no te apoyaba?'
     ]
   }
 };
@@ -140,7 +153,8 @@ const next = document.getElementById('next');
 const thanks = document.getElementById('thanks');
 const questionView = document.getElementById('questionView');
 const languageSelect = document.getElementById('languageSelect');
-const answers = Array(4).fill(null);
+const scaleTypes = ['direction', 'frequency', 'frequency', 'difference', 'satisfaction', 'frequency'];
+const answers = Array(6).fill(null);
 let index = 0;
 let language = 'en';
 try { language = localStorage.getItem('momoLanguage') || 'en'; } catch {}
@@ -150,7 +164,9 @@ function setText(id, value) { document.getElementById(id).textContent = value; }
 function copy() { return translations[language]; }
 function questionNumber() {
   const number = String(index + 1).padStart(2, '0');
-  return language === 'zh-Hans' || language === 'zh-Hant' ? `第 ${number} / 04 題` : `${copy().question} ${number} / 04`;
+  if (language === 'zh-Hans') return `第 ${number} / 06 题`;
+  if (language === 'zh-Hant') return `第 ${number} / 06 題`;
+  return `${copy().question} ${number} / 06`;
 }
 function applyLanguage() {
   const t = copy();
@@ -170,10 +186,8 @@ function applyLanguage() {
   setText('startHint', t.hint);
   setText('back', t.back);
   setText('surveyLabel', t.survey);
+  setText('surveyContext', t.context);
   setText('qHelp', t.help);
-  setText('scaleLow', t.options[0]);
-  setText('scaleHigh', t.options[4]);
-  scale.setAttribute('aria-label', t.scaleAria);
   setText('submitError', t.error);
   setText('surveyNotice', t.notice);
   setText('thanksKicker', t.thanksKicker);
@@ -184,11 +198,15 @@ function applyLanguage() {
 }
 function renderQuestion() {
   const t = copy();
+  const options = t.scales[scaleTypes[index]];
   setText('qKicker', questionNumber());
   setText('qTitle', t.questions[index]);
+  setText('scaleLow', options[0]);
+  setText('scaleHigh', options[4]);
+  scale.setAttribute('aria-label', t.scaleAria);
   document.getElementById('progress').innerHTML = t.questions.map((_, i) => `<i class="${i <= index ? 'done' : ''}"></i>`).join('');
   scale.replaceChildren();
-  t.options.forEach((label, i) => {
+  options.forEach((label, i) => {
     const button = document.createElement('button');
     button.type = 'button';
     button.className = 'option' + (answers[index] === i + 1 ? ' selected' : '');
@@ -201,7 +219,7 @@ function renderQuestion() {
     scale.append(button);
   });
   next.disabled = !answers[index];
-  next.textContent = index === 3 ? t.finish : t.next;
+  next.textContent = index === 5 ? t.finish : t.next;
   questionView.hidden = false;
 }
 function showSurvey() {
@@ -228,7 +246,7 @@ document.getElementById('start').onclick = event => { event.preventDefault(); sh
 document.getElementById('back').onclick = () => { if (!thanks.hidden) { showHome(); return; } if (index > 0) { index--; renderQuestion(); } else showHome(); };
 next.onclick = async () => {
   if (!answers[index]) return;
-  if (index < 3) { index++; renderQuestion(); return; }
+  if (index < 5) { index++; renderQuestion(); return; }
   const error = document.getElementById('submitError');
   error.hidden = true;
   next.disabled = true;
